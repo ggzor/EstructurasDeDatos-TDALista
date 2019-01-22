@@ -67,7 +67,7 @@ int main()
     cout << "Opción: ";
     cin >> opc;
 
-    int tamano_anterior;
+    // Selección de opción con base a entrada del usuario.
     switch (opc)
     {
     case 1:
@@ -80,7 +80,7 @@ int main()
       }
       catch (error_lista_llena &error)
       {
-        cerr << "Error, no se pueden insertar mas elementos.\n";
+        cerr << "Error, no se pueden insertar más elementos.\n";
         esperar_enter();
       }
       break;
@@ -94,7 +94,7 @@ int main()
       }
       catch (error_lista_llena &error)
       {
-        cerr << "Error, no se pueden insertar mas elementos.\n";
+        cerr << "Error, no se pueden insertar más elementos.\n";
         esperar_enter();
       }
       break;
@@ -106,7 +106,7 @@ int main()
       }
       catch (error_lista_vacia &error)
       {
-        cerr << "No se pudo eliminar, la lista esta vacia.\n";
+        cerr << "No se pudo eliminar, la lista está vacia.\n";
         esperar_enter();
       }
       break;
@@ -118,24 +118,26 @@ int main()
       }
       catch (error_lista_vacia &error)
       {
-        cerr << "No se pudo eliminar, la lista esta vacia.\n";
+        cerr << "No se pudo eliminar, la lista está vacia.\n";
         esperar_enter();
       }
       break;
     case 5:
-      // Si hay duplicados, la lista cambia de longitud.
-      tamano_anterior = lista.length();
-      lista.eliminarDuplicados();
+      {
+        // Si hay duplicados, la lista cambia de longitud.
+        int tamano_anterior = lista.length();
+        lista.eliminarDuplicados();
 
-      if (lista.length() < tamano_anterior)
-      {
-        cout << "Se eliminaron los duplicados." << endl;
+        if (lista.length() < tamano_anterior)
+        {
+          cout << "Se eliminaron los duplicados." << endl;
+        }
+        else
+        {
+          cout << "No hay duplicados en la lista." << endl;
+        }
+        esperar_enter();
       }
-      else
-      {
-        cout << "No hay duplicados en la lista." << endl;
-      }
-      esperar_enter();
       break;
     case 6:
       cout << "Valor:\n";
